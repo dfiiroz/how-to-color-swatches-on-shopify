@@ -1,4 +1,4 @@
-# how-to-color-swatches-on-shopify
+# how-to-add-color-swatches-on-shopify
 How to Add Color Swatches on Shopify
 How to add color swatches to Shopify 
 
