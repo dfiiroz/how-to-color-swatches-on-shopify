@@ -1,0 +1,32 @@
+/*Custom Color Swatches CSS */
+
+.firoz_color_swatches {
+  display: flex;
+  justify-content: space-between;
+}
+.firoz_color_swatches input {
+  display: none;
+}
+.firoz_color_swatches label {
+  /* max-height: 50px; */
+  margin-right: 5%;
+}
+.firoz_color_swatches label:last-child {
+  margin-right: 0%;
+}
+.firoz_color_swatches img {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgb(182, 182, 182);
+    border-radius: 100%;
+}
+
+
+.firoz_color_swatches input:checked + label {
+  border-radius: 50%;
+  border: 3px solid rgba(0, 255, 17, 0.438);
+  background: #000;
+  box-shadow: -5px 5px 10px #5a5a5a,
+             5px -5px 10px #ffffff;
+  max-height: 56px;
+}

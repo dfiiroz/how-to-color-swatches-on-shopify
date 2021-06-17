@@ -1,0 +1,39 @@
+{% unless product.has_only_default_variant %}
+<div class="product-form__controls-group">
+  {% for option in product.options_with_values %}
+    <div class="selector-wrapper js product-form__item">
+
+      {% if option.name == "Color" %}
+        <label >{{ option.name }}</label>
+        {% assign index = forloop.index%}
+
+        <div class="firoz_color_swatches">
+        {% for value in option.values %}
+          <input class="single-option-selector-{{ section.id }}" id="color-{{ forloop.index }}" type="radio" name="Color" value="{{ value | escape }}" data-index="option{{ index }}" {% if option.selected_value == value %}checked{% endif %}/>
+          <label for="color-{{ forloop.index }}">
+            <img src="{{ value | escape | downcase | append: '.png' | strip | asset_url }}" alt="">
+          </label>
+        {% endfor %}
+      </div>  
+
+
+      {% else %}
+      
+      <label {% if option.name == 'default' %}class="label--hidden"{% endif %} for="SingleOptionSelector-{{ forloop.index0 }}">
+        {{ option.name }}
+      </label>
+
+        <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input"
+        id="SingleOptionSelector-{{ forloop.index0 }}"
+        data-index="option{{ forloop.index }}"
+        >
+        {% for value in option.values %}
+          <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
+        {% endfor %}
+        </select>
+      {% endif %}
+
+    </div>
+  {% endfor %}
+</div>
+{% endunless %}
